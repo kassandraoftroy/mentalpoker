@@ -2,7 +2,7 @@ from .utils import *
 
 '''
 	Extended Elgamal Encryption Suite
-	Original Implementation By: superarius
+	Original Implementation By: kassandra.eth
 	
 	Universally re-encryptable, commutative ElGamal based cryptosystem. For scheme details see:
 	http://groups.csail.mit.edu/cis/theses/weis-phd-thesis.pdf (p 71)
