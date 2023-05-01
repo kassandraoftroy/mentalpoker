@@ -1,5 +1,8 @@
 # Mental Poker
 
+### NOTE: This repo is intended for research purposes only and has not been audited. In fact, the implementation based on elliptic curve cryptography is NOT SECURE as implemented here. The ElGamal variant remains potentially sound however is not very practical in terms of computational overhead and more State of the Art, scalable approaches now exist, see: https://geometry.xyz/notebook/mental-poker-in-the-age-of-snarks-part-1
+
+
 Mental Poker is the common name for a set of cryptographic problems that concerns playing a fair game over distance without the need for a trusted third party ([read more](https://en.wikipedia.org/wiki/Mental_poker))
 
 This repository is a cryptographic toolbox written in python, for the basic operations of mental card games:
