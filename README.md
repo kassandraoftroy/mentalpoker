@@ -8,7 +8,7 @@ This repository is a cryptographic toolbox written in python, for the basic oper
 2. dealing (locking a shared order of unknown cards)
 3. reavealing (opening unknown cards to one or all parties)
 
-Using elliptic curve crytpography (or a universally re-encryptable commutative variant of ElGamal) a set of parties at a distance can compute these "deck of cards" operations in a provably fair way.
+Using a universally re-encryptable commutative variant of ElGamal a set of parties at a distance can compute these "deck of cards" operations in a provably fair way.
 
 *(how the parties communicate with each other, and the logic of any specific card game are outside the scope of this package)*
 
@@ -20,18 +20,18 @@ python >=3.6
 
 ## Usage
 
-`from mentalpoker import DealerEC, DealerEG`
+`from mentalpoker import DealerEG`
 
-For the standard mental poker cryptographic operations use the `DealerEC` or `DealerEG` class. The two classes function identically but each uses a different crypto system (EC for elliptic curves and EG for elgamal).
+For the standard mental poker cryptographic operations use the `DealerEG` class.
 
 Participating parties in a p2p card game should all implement a matching `Dealer` (same crypto parameters), since everyone participates in the dealing operations (in every single hand) to assure fairness. The basic scheme for preparing a deck for card game play without a trusted dealer involves passing the deck in a ring two times: starting with a new deck the first participant does a shuffle(), then passes the shuffled deck to the next player who also does a shuffle(), when the first participant receives the deck again they run deal(), and pass the output deck to the next player who also runs deal() etc. Once every party has run shuffle() and deal(), the final output deck is ready for play.
 
 Here is a two party example:
 
 ```
->>> from mentalpoker import DealerEC
->>> dealerA = DealerEC()
->>> dealerB = DealerEC()
+>>> from mentalpoker import DealerEG
+>>> dealerA = DealerEG()
+>>> dealerB = DealerEG()
 >>> deck = dealerA.new_deck // A takes a fresh deck of cards
 >>> deck = dealerA.shuffle(deck) // A shuffles and encrypts the deck
 >>> deck = dealerB.shuffle(deck) // B shuffles and encrypts the deck received from A
